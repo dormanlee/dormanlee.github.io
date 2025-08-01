@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Match } from '../../model/Match'
-import { Player, Team } from '../../model/Team'
+import { Player } from '../../model/Team'
 import { Modal } from '../ui/modal'
 import { useModal } from '../../hooks/useModal'
 
