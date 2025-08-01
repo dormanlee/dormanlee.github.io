@@ -7,6 +7,7 @@ export const matches: Match[] = [
     name: 'Game 1',
     location: 'Venue A, Main Hall',
     description: 'Team 1 VS Team 2 | Team 1 Wins',
+    isOvertime: true,
     team: {
       home: {
         id: 1,
@@ -316,13 +317,13 @@ export const matches: Match[] = [
     isDraw: false,
     status: 'completed',
     attendance: 1200,
-    duration: '2h',
+    duration: 120, // in minutes
     matchType: 'league',
     videos: [
       {
         name: 'Game 1',
         url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-        description: 'Team 1 VS Team 2 | 2025-07-31',
+        description: 'Team 1 VS Team 2 | 2025-07-21',
       },
     ],
   },

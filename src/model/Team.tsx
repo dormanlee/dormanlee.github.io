@@ -4,8 +4,8 @@ export interface Player {
   name: string
   team: string
   number: string
-  position?: string
-  age?: number
+  position: string
+  age: number
   height?: string
   weight?: string
   scores?: number

@@ -3,19 +3,19 @@ import { Link, useLocation } from 'react-router'
 
 // Assume these icons are imported from an icon library
 import {
-  BoxCubeIcon,
+  // BoxCubeIcon,
   CalenderIcon,
   ChevronDownIcon,
-  GridIcon,
+  // GridIcon,
   HorizontaLDots,
   ListIcon,
-  PageIcon,
-  PieChartIcon,
-  PlugInIcon,
+  // PageIcon,
+  // PieChartIcon,
+  // PlugInIcon,
   TableIcon,
-  UserCircleIcon,
+  // UserCircleIcon,
   GroupIcon,
-  VideoIcon,
+  // VideoIcon,
 } from '../icons'
 import { useSidebar } from '../context/SidebarContext'
 import SidebarWidget from './SidebarWidget'
@@ -110,7 +110,8 @@ const othersItems: NavItem[] = [
 ]
 
 const AppSidebar: React.FC = () => {
-  const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar()
+  const { isExpanded, isMobileOpen, isHovered /*, setIsHovered*/ } =
+    useSidebar()
   const location = useLocation()
 
   const [openSubmenu, setOpenSubmenu] = useState<{

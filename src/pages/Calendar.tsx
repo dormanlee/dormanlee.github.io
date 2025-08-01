@@ -19,23 +19,23 @@ export interface CalendarEvent extends EventInput {
 }
 
 const Calendar: React.FC = () => {
-  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null)
+  // const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null)
   const [eventTitle, setEventTitle] = useState('')
   const [eventStartDate, setEventStartDate] = useState('')
   const [eventEndDate, setEventEndDate] = useState('')
   const [eventLocation, setEventLocation] = useState('')
   const [eventDescription, setEventDescription] = useState('')
-  const [eventLevel, setEventLevel] = useState('')
+  // const [eventLevel, setEventLevel] = useState('')
   const [events, setEvents] = useState<CalendarEvent[]>([])
   const calendarRef = useRef<FullCalendar>(null)
   const { isOpen, openModal, closeModal } = useModal()
 
-  const eventsLevel = {
-    Danger: 'danger',
-    Success: 'success',
-    Primary: 'primary',
-    Warning: 'warning',
-  }
+  // const eventsLevel = {
+  //   Danger: 'danger',
+  //   Success: 'success',
+  //   Primary: 'primary',
+  //   Warning: 'warning',
+  // }
 
   useEffect(() => {
     // Initialize with some events
@@ -51,54 +51,54 @@ const Calendar: React.FC = () => {
 
   const handleEventClick = (clickInfo: EventClickArg) => {
     const event = clickInfo.event
-    setSelectedEvent(event as unknown as CalendarEvent)
+    // setSelectedEvent(event as unknown as CalendarEvent)
     setEventTitle(event.title)
     setEventStartDate(event.start?.toLocaleString('en-US', dateFormat) || '')
     setEventEndDate(event.end?.toLocaleString('en-US', dateFormat) || '')
     setEventLocation(event.extendedProps.location || '')
     setEventDescription(event.extendedProps.description || '')
-    setEventLevel(event.extendedProps.calendar)
+    // setEventLevel(event.extendedProps.calendar)
     openModal()
   }
 
-  const handleAddOrUpdateEvent = () => {
-    if (selectedEvent) {
-      // Update existing event
-      setEvents((prevEvents) =>
-        prevEvents.map((event) =>
-          event.id === selectedEvent.id
-            ? {
-                ...event,
-                title: eventTitle,
-                start: eventStartDate,
-                end: eventEndDate,
-                extendedProps: { calendar: eventLevel },
-              }
-            : event
-        )
-      )
-    } else {
-      // Add new event
-      const newEvent: CalendarEvent = {
-        id: Date.now().toString(),
-        title: eventTitle,
-        start: eventStartDate,
-        end: eventEndDate,
-        allDay: true,
-        extendedProps: { calendar: eventLevel },
-      }
-      setEvents((prevEvents) => [...prevEvents, newEvent])
-    }
-    closeModal()
-    resetModalFields()
-  }
+  // const handleAddOrUpdateEvent = () => {
+  //   if (selectedEvent) {
+  //     // Update existing event
+  //     setEvents((prevEvents) =>
+  //       prevEvents.map((event) =>
+  //         event.id === selectedEvent.id
+  //           ? {
+  //               ...event,
+  //               title: eventTitle,
+  //               start: eventStartDate,
+  //               end: eventEndDate,
+  //               extendedProps: { calendar: eventLevel },
+  //             }
+  //           : event
+  //       )
+  //     )
+  //   } else {
+  //     // Add new event
+  //     const newEvent: CalendarEvent = {
+  //       id: Date.now().toString(),
+  //       title: eventTitle,
+  //       start: eventStartDate,
+  //       end: eventEndDate,
+  //       allDay: true,
+  //       extendedProps: { calendar: eventLevel },
+  //     }
+  //     setEvents((prevEvents) => [...prevEvents, newEvent])
+  //   }
+  //   closeModal()
+  //   resetModalFields()
+  // }
 
   const resetModalFields = () => {
     setEventTitle('')
     setEventStartDate('')
     setEventEndDate('')
-    setEventLevel('')
-    setSelectedEvent(null)
+    // setEventLevel('')
+    // setSelectedEvent(null)
   }
 
   return (
